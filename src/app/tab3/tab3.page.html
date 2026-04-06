@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Relatório</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-padrao" style="justify-content: flex-start;">
+    <h2>Histórico</h2>
+
+    <ion-list>
+      @for (t of ticketService.tickets; track t.numero) {
+        <ion-card style="margin: 0 0 15px 0;">
+          <ion-item lines="none" style="text-align: center;">
+            <ion-label>
+              <h2>Senha: <strong>{{ t.tipo }}{{ t.numero }}</strong></h2>
+              <p>Status: {{ t.status }}</p>
+
+              <ion-badge [color]="t.status === 'atendido' ? 'success' : 'warning'" style="margin-top: 10px;">
+                {{ t.status }}
+              </ion-badge>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      } @empty {
+        <p>Nenhuma senha emitida.</p>
+      }
+    </ion-list>
+  </div>
+</ion-content>

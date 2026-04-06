@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Totem de Atendimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-padrao">
+    <h2>Bem-vindo!</h2>
+    <p>Selecione uma opção:</p>
+
+    <ion-button expand="block" color="danger" (click)="emitir('SP')">
+      (SP) PRIORITÁRIO
+    </ion-button>
+
+    <ion-button expand="block" color="warning" (click)="emitir('SE')">
+      (SE) EXAMES
+    </ion-button>
+
+    <ion-button expand="block" color="success" (click)="emitir('SG')">
+      (SG) GERAL
+    </ion-button>
+
+    @if (ultimaSenha) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Sua Senha:</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h1 style="font-size: 4em; color: black; margin: 0; font-weight: 800;">
+            {{ ultimaSenha.tipo }}{{ ultimaSenha.numero }}
+          </h1>
+          <p>Aguarde ser chamado.</p>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
+</ion-content>

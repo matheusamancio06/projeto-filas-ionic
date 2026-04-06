@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>Painel do Atendente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-padrao">
+    <h2>Controle de Guichê</h2>
+
+    <ion-button color="success" (click)="proximo()">
+      CHAMAR PRÓXIMO
+    </ion-button>
+
+    @if (senhaSendoAtendida) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Atendendo Agora:</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h1 style="font-size: 4em; color: #2dd36f; margin: 0; font-weight: 800;">
+            {{ senhaSendoAtendida.tipo }}{{ senhaSendoAtendida.numero }}
+          </h1>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
+</ion-content>
